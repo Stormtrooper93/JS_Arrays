@@ -4,9 +4,12 @@
 //1. Задача на повернення ініціалів для кожного імені з масиву, посортованих в алфавітному порядку:
 
 const userNames = ["Петрик Ольга Іванівна", "Гнатюк Петро Антонович", "Рудко Андрій Опанасович"];
-const initials = userNames.map((user) => user.split(" ").map((n)=>n[0]).join("."));
+const sortedUserNames = userNames.sort((a, b) => a.localeCompare(b));
 
-console.log(initials); // [ "Г.П.А", "П.О.І", "Р.А.О"]
+const initials = sortedUserNames.map((user) => user.split(" ").map((n)=>n[0]).reduce((acc, cur) => acc+=cur + '.', ''));
+
+console.log(initials); // [ "Г.П.А.", "П.О.І.", "Р.А.О."]
+
 
 
 
@@ -28,15 +31,15 @@ console.log(typeof reverseMaxValue); // 'number'
 
 
 
+
 //3. Задача на знаходження добутку масиву чисел з невідомою глибиною вкладеності:
 
 const resultsArray = [1, 2, [3, [4]]];
 let productOfArray;
 
-const initialValue = 1;
-
 flatArray = resultsArray.flat(Infinity);
 
+const initialValue = 1;
 productOfArray = flatArray.reduce((a, b) => a*b, initialValue);
 
 console.log(productOfArray); // 24
