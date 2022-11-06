@@ -6,12 +6,12 @@
 const userNames = ["Петрик Ольга Іванівна", "Гнатюк Петро Антонович", "Рудко Андрій Опанасович"];
 const sortedUserNames = userNames.sort((a, b) => a.localeCompare(b));
 
-const initials = sortedUserNames.map((user) => user.split(" ").map((n)=>n[0]).reduce((acc, cur) => acc+=cur + '.', ''));
+const initials = sortedUserNames.map((user) => user.split(" ").map((n)=>n[0]+".").join(""));
 
 console.log(initials); // [ "Г.П.А.", "П.О.І.", "Р.А.О."]
 
 
-
+// .reduce((acc, cur) => acc+=cur + '.', '')
 
 //2. Задача на розворот числа:  
 
